@@ -1,22 +1,28 @@
+from flask import Flask, request, render_template
 import os
+import sys
 import smtplib
 import json
 from email.message import EmailMessage
 
+app = Flask(__name__)
 EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
-#delete below 
-before = {
-  "email": "gemma@pallas.ie",
-  "subject": "Courtyard order",
-  "body": "Chips,Lettuce,Carrots"
-}
+@app.route('/receiver', methods = ['POST'])
+def worker():
+	data = request.get_json()
+	result = ''
 
-after = json.dumps(before)
-#delete above
+	for item in data:
+		result += str(item['make']) + '\n'
 
-data = json.loads(after)
+	return result
+
+if __name__ == '__main__':
+	app.run()
+
+data = json.loads(worker())
 reciever = data["email"]
 subject = data["subject"]
 body = data["body"]
