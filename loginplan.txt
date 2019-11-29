@@ -1,7 +1,7 @@
 
 
-Sign up -> sign up user from firebase auth -> add users UID to the database along with its last login time -> creates session with the users UID
+Sign up -> sign up user from firebase auth -> add users UID to the database along with its last login time -> creates session with the users UID -> redirect to index.html
 
-Log in -> log user in from firebase auth -> update last login time in database using UID -> create session with the users UID
+Log in -> log user in from firebase auth -> update last login time in database using UID -> create session with the users UID -> redirect to index.html
 
 logout -> log current user out -> close current session with current UID
