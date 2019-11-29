@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Chefcity</title>
+		<link rel="stylesheet" href="styles/ordersStyle.css">
+		<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		</head>
+	<body>
+		<name>
+			<h1><a href="./index.html" class="menuBar">Chefcity</a></h1>
+			<h3><i class="glyphicon glyphicon-user"></i> Profile</h3>
+		</name>
+
+		<div class="content">
+			<!-- MENU BAR -->
+			<nav class="navbar navbar-light" id="menu">
+			  <div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-center">
+				  <li class="active"><a href="./index.html"><i class="glyphicon glyphicon-home"></i>  Home</a></li>
+				  <li><a href="./inventory.html"><i class="glyphicon glyphicon-cutlery"></i>  My Inventory</a></li>
+				  <li><a href="./recipes.html"><i class="glyphicon glyphicon-book"></i>  Recipes</a></li>
+				  <li><a href="./orders.html"><i class="glyphicon glyphicon-list"></i>  Orders</a></li>
+				  <li><a href="./suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i>  Suppliers</a></li>
+				</ul>
+			  </div>
+			</nav>
+
+
+			<div class="orders-content">
+
+				<div class="row">
+					<div class="col-sm-2"><h4>Last orders:</h4>
+						<h5><a href:"#">07/10/2019</a></h5>
+						<h5><a href:"#">06/30/2019</a></h5>
+
+					</div>
+					<div class="col-sm-5">
+						<form class="form-horizontal" action="/action_page.php" name="my-form" onsubmit="return validateForm()" method="post">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="email">Ingredient:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="ingredient" placeholder="Enter ingredient">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="pwd">Measure unit:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="measure" placeholder="Enter measure unit">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="pwd">Quantity:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="quantity" placeholder="Enter quantity">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="pwd">Supplier:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="supplier" placeholder="Enter supplier">
+								</div>
+							</div>
+
+						</form>
+						<div class="buttons">
+							<button type="submit" class="btn btn-default" onclick="validateForm()">Add item</button>
+							<button type="cancel" class="btn btn-default" onclick="deleteRow()">Delete previous</button>
+						</div>
+						<div class="buttons">
+							<button type ="submit" class="btn btn-default" onclick="sendJSON()">Submit order</button>
+						</div>
+						<p id="confirm"></p>
+					</div>
+					<div class="col-sm-5">
+						<h4>Shopping List:</h4>
+						<table class="table" id="table">
+							<thead>
+								<tr>
+									<th>Ingredient</th>
+									<th>Quantity</th>
+									<th>Units</th>
+									<th>Supplier</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<script src="scripts/ordersJS.js"></script>
+	</body>
+</html>
