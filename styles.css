@@ -62,8 +62,7 @@ name{
 /*tengo que arreglar que si se cambia el tamaño de la ventana, la imagen
  *  cambie pero que no se quede ni muy pequeña ni muy grande*/
 #imgInventory{
-	max-width:400px;
-	max-height:250px;
+	width:30%;
 	padding:10px;
 	border-radius:10%;
 }

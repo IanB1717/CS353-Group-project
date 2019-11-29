@@ -1,5 +1,6 @@
 const supplierForm = document.querySelector('#add-supplier');
 const supplierList = document.querySelector('#supplier-list');
+const registrationForm= document.querySelector('#registration');
 
 //create list entry and render it to page
 function renderSupplier(doc){
@@ -42,4 +43,19 @@ supplierForm.addEventListener('submit',(e) =>{
     supplierForm.addRep.value = '';
     supplierForm.addEmail.value = '';
     supplierForm.addAccount.value = '';
+})
+
+//saving registration details
+registrationForm.addEventListener('submit',(e) =>{
+    e.preventDefault();
+    db.collection('Users').add({
+        Name: registrationForm.name.value,
+        Email: registrationForm.email.value,
+        Username: registrationForm.username.value,
+        Password: registrationForm.password.value
+    })
+    registrationForm.addName.value = '';
+    registrationForm.addRep.value = '';
+    registrationForm.addEmail.value = '';
+    registrationForm.addAccount.value = '';
 })

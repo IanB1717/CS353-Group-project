@@ -1,1 +1,2 @@
-# CS353-Group-project
+# CS353 ChefCity Group 12
+
