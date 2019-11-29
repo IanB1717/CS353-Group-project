@@ -1,0 +1,167 @@
+﻿* {
+	margin: auto;
+	padding:0;
+	box-sizing: border-box;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('poppins/Poppins-Regular.ttf'); 
+}
+
+a:link{text-decoration:none; color:black}
+a:hover{text-decoration:underline; color:black}
+a:visited{text-decoration:none; color:black}
+a:active{text-decoration:none; color:black}
+
+/*No se como hacer que la cabecera parezca más bonita xD*/
+/*Me gustaría poner al lado del nombre de la web un logo (que no tenemos todavía)
+ * y ponerla de otro color o algo así y más mona*/
+.name{
+	background-color:#c8f3f1;
+	padding:1%;
+	display:flex;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+.button {
+  background-color: #c8f3f1; /* Green */
+  border: 2px solid #c9c6c5;
+  border-radius: 30px;
+  color: black;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.content{
+	background-color:#f1f1f1;
+	float:center;
+	padding: 5%;
+}
+
+.row{
+	margin:0px 500px;
+	float:center;
+	margin-bottom:15px;
+	border-style:solid;
+	border-width:1px;
+	border-radius:25px;
+	display:flex;
+}
+
+.row:hover{
+	background-color:#f8f8f8;
+}
+
+/*IMAGES*/
+/*tengo que arreglar que si se cambia el tamaño de la ventana, la imagen
+ *  cambie pero que no se quede ni muy pequeña ni muy grande*/
+#imgInventory{
+	max-width:400px;
+	max-height:250px;
+	padding:10px;
+	border-radius:10%;
+}
+#imgRecipes{
+	width:30%;
+	padding:10px;
+	border-radius:10%;
+}
+#imgOrders{
+	width:30%;
+	padding:10px;
+	border-radius:10%;
+}
+#imgSuppliers{
+	width:30%;
+	padding:10px;
+	border-radius:10%;
+}
+
+/*DESCRIPTION PART*/
+.description > h3{
+	margin-top:20px;
+	text-align:center;
+	text-decoration: none;
+	color: black;
+}
+
+.description > h3:hover{
+	text-decoration:none;
+	color:black;
+
+}
+.description > p{
+	text-align:justify;
+	padding:40px;
+}
+
+
+#myCarousel{
+	width:50%;
+}
+
+/*This sets the navbar in the center of the page*/
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+.suppliers-content{
+	padding:1%;
+}
+
+.addSup{
+	width:500px;
+}
+.listOfSup{
+	text-align:center;
+	padding:2%;
+}
+
+.buttons{
+	text-align:center;
+	padding:1%;
+}
+
+.col-sm-2{
+	text-align:center;
+	display:block;
+	padding:1%;
+}
+.col-sm-5{
+	float:center;
+	padding:1%;
+}
+
+.inventory{
+	margin:20px 100px;
+	
+}
+.columns{
+	display:flex;
+}
+.panel-default{
+	width:60%;
+	height:auto;
+}
+.panel-heading{
+	text-align:center;
+}
+
+
+.btn-group-vertical{
+	padding:3%;
+}
+
+.list-group{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
