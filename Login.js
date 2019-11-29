@@ -1,4 +1,4 @@
-
+var loggedIn = false;
 
 const loginForm = document.querySelector('#login-form');
 const logout = document.querySelector('#logout');
@@ -9,6 +9,7 @@ logout.addEventListener('click', (e) => {
     auth.signOut().then(() => {
         console.log('user signed out');
     })
+    loggedIn = false;
 });
 
 loginForm.addEventListener('submit', (e) => {
@@ -19,7 +20,19 @@ loginForm.addEventListener('submit', (e) => {
 
     console.log(email,password);
 
+    var currentdate = new Date(); 
+var datetime =  currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+
     auth.signInWithEmailAndPassword(email, password).then(cred =>{
+        return db.collection('Users').doc(cred.user.uid).set({
+            lastLogin: datetime
+        });
         console.log(cred.user)
+        
     });
 });
