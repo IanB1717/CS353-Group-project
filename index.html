@@ -1,72 +1,101 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Chefcity</title>
-		<link rel="stylesheet" href="styles.css">
-		<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<name>
-			<h1><a href="index.html" class="menuBar">Chefcity</a></h1>
-			<h3><i class="glyphicon glyphicon-user"></i> Profile</h3>
-			<button  id="myBtn" class="button"><a href="sign_up.html">Login/Register</a></button>
-		</name>
-		<!-- Image and text
+
+<head>
+	<meta charset="utf-8">
+	<title>Chef City</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+
+</head>
+
+<body onload="checkLogin()">
+
+	<name>
+		<h1><a href="index.html" class="menuBar"> Chef City</a></h1>
+		<h3><i class="glyphicon glyphicon-user"></i> Profile</h3>
+		<div id="login-tab">
+			<button id="myBtn" class="button"><a href="sign_up.html">Login/Register</a></button>
+		</div>
+	</name>
+	<!-- Image and text
 		<nav class="navbar navbar-light bg-light">
 			<a class="navbar-brand" href="#">
 				<img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
 			Chefcity
 			</a>
 		</nav> -->
-		
-		<div class="content">
-			<div class="row">
-				<img id="imgInventory" src="./images/inventory.jpg" alt="Chania">
-				<div class="description">
-					<h3><a href="./inventory.html">My inventory</a></h3>
-					<p>Description of the inventory: Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis iaculis, himenaeos massa convallis porta leo dui.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="description">
-					<h3><a href="./recipes.html">Recipes</a></h3>
-					<p>Description of the recipes:Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis iaculis, himenaeos massa convallis porta leo dui.</p>
-				</div>
-				<img id="imgRecipes" src="./images/recipes.jpg">
-				
-			</div>
-			<div class="row">
-				<img id="imgOrders" src="./images/orders.jpg">
-				<div class="description">
-					<h3><a href="./orders.html">Orders</a></h3>
-					<p>Description of the orders: Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis iaculis, himenaeos massa convallis porta leo dui.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="description">
-					<h3><a href="./suppliers.html">Suppliers</a></h3>
-					<p>Description of the suppliers: Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis iaculis, himenaeos massa convallis porta leo dui.</p>
-				</div>
-				<img id="imgSuppliers" src="./images/suppliers.jpg">
+
+	<div class="content">
+		<div class="row">
+			<img id="imgInventory" src="./images/inventory.jpg" alt="Chania">
+			<div class="description">
+				<h3><a href="./inventory.html">My inventory</a></h3>
+				<p>Description of the inventory: Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel
+					tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis
+					velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere
+					in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis
+					consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis
+					iaculis, himenaeos massa convallis porta leo dui.</p>
 			</div>
 		</div>
-		
-		<!-- CAROUSEL -->
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<!--<ol class="carousel-indicators">
+		<div class="row">
+			<div class="description">
+				<h3><a href="./recipes.html">Recipes</a></h3>
+				<p>Description of the recipes:Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel
+					tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis
+					velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere
+					in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis
+					consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis
+					iaculis, himenaeos massa convallis porta leo dui.</p>
+			</div>
+			<img id="imgRecipes" src="./images/recipes.jpg">
+
+		</div>
+		<div class="row">
+			<img id="imgOrders" src="./images/orders.jpg">
+			<div class="description">
+				<h3><a href="./orders.html">Orders</a></h3>
+				<p>Description of the orders: Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel
+					tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis
+					velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere
+					in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis
+					consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis
+					iaculis, himenaeos massa convallis porta leo dui.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="description">
+				<h3><a href="./suppliers.html">Suppliers</a></h3>
+				<p>Description of the suppliers: Lorem ipsum dolor sit amet consectetur adipiscing elit interdum a, vel
+					tempor laoreet faucibus sed magnis elementum lectus dui, turpis et in venenatis consequat mollis
+					velit sodales. Hac dui curae varius placerat vulputate aptent imperdiet torquent sociosqu posuere
+					in, gravida mattis consequat facilisis potenti lectus mauris ut sagittis. Hendrerit ligula felis
+					consequat scelerisque pellentesque commodo purus, at ridiculus parturient praesent ut arcu mollis
+					iaculis, himenaeos massa convallis porta leo dui.</p>
+			</div>
+			<img id="imgSuppliers" src="./images/suppliers.jpg">
+		</div>
+	</div>
+
+	<!-- CAROUSEL -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<!--<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 				<li data-target="#myCarousel" data-slide-to="3"></li>
 			</ol> -->
 
-			<!-- Wrapper for slides -->
-			<!-- <div class="carousel-inner">
+		<!-- Wrapper for slides -->
+		<!-- <div class="carousel-inner">
 				<div class="item active">
 					<img src="./images/inventory.jpg" alt="My inventory">
 					<div class="carousel-caption">
@@ -100,8 +129,8 @@
 				</div>
 			</div> -->
 
-			<!-- Left and right controls -->
-			<!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		<!-- Left and right controls -->
+		<!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left"></span>
 				<span class="sr-only">Previous</span>
 			</a>
@@ -109,7 +138,30 @@
 				<span class="glyphicon glyphicon-chevron-right"></span>
 				<span class="sr-only">Next</span>
 			</a>-->
-		</div>
-		
-	</body>
+	</div>
+	<script>
+	const firebaseConfig = {
+		apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+		authDomain: "chefcity-ecbfb.firebaseapp.com",
+		databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+		projectId: "chefcity-ecbfb",
+		storageBucket: "chefcity-ecbfb.appspot.com",
+		messagingSenderId: "583029024558",
+	  appId: "1:583029024558:web:44d2759fadb6350966bcbf",
+	  measurementId: "G-TTL2G91C3D"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  
+  
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="session.js"></script>
+<script src="login.js"></script>
+
+</body>
+
 </html>

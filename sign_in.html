@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Login V13</title>
 	<meta charset="UTF-8">
@@ -10,50 +11,58 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 </head>
+
 <body style="background-color: #999999;">
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="login100-more" style="background-image: url('images/english-breakfast.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-					<form class="login-form" id = "login-form">
-						<span class="login100-form-title p-b-59">
-							Sign In
-						</span>
-						<div class="wrap-input100 validate-input" data-validate="Username is required">
-							<span class="label-input100">Username: </span>
-							<input id ="login-email"type="text" name="username" placeholder="Username...">
-							<span class="focus-input100"></span>
-						</div>
+				<form class="login-form" id="login-form">
+					<span class="login100-form-title p-b-59">
+						Sign In
+					</span>
 
-						<div class="wrap-input100 validate-input" data-validate = "Password is required">
-							<span class="label-input100">Password: </span>
-							<input  id ="login-password" type="password" name="password" placeholder="*************">
-							<span class="focus-input100"></span>
-						</div>
-						<input type="submit" value="Log In">
-						<input type="button" id = "logout" value="Sign out">
-							
-						</div>
 
-					</form>
+					<div class="wrap-input100 validate-input" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" id="login-email" type="text" name="username" placeholder="Username...">
+						<span class="focus-input100"></span>
+					</div>
 
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" id="login-password" type="password" name="pass"
+							placeholder="*************">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="button" onclick="login()">
+								Sign In
+							</button>
+						</div>
+					</div>
 			</div>
+			</form>
 		</div>
+	</div>
 	</div>
 	<script>
 		const firebaseConfig = {
-			  apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
-			  authDomain: "chefcity-ecbfb.firebaseapp.com",
-			  databaseURL: "https://chefcity-ecbfb.firebaseio.com",
-			  projectId: "chefcity-ecbfb",
-			  storageBucket: "chefcity-ecbfb.appspot.com",
-			  messagingSenderId: "583029024558",
+			apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+			authDomain: "chefcity-ecbfb.firebaseapp.com",
+			databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+			projectId: "chefcity-ecbfb",
+			storageBucket: "chefcity-ecbfb.appspot.com",
+			messagingSenderId: "583029024558",
 			appId: "1:583029024558:web:44d2759fadb6350966bcbf",
 			measurementId: "G-TTL2G91C3D"
 		};
@@ -61,15 +70,16 @@
 		firebase.initializeApp(firebaseConfig);
 
 		const auth = firebase.auth();
-		
+
 		const db = firebase.firestore()
 		db.settings({
 			//timestampsInSnapshots: true
 		});
 	</script>
-	
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="Login.js"></script>
+	<script src="login.js"></script>
 
 </body>
+
 </html>

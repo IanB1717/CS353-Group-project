@@ -35,8 +35,9 @@ name{
   padding: 7px 15px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  float: right;
+  display: inline-flex;
+   font-size: 16px;
 }
 .content{
 	background-color:#f1f1f1;
