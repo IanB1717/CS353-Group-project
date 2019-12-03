@@ -22,25 +22,32 @@ function validateForm(){
 	var amount=document.getElementById('quantity').value;
 	var measure=document.getElementById('measure').value;
 	var order=new Order(supplier, item, amount, measure);
-	arr.push(order);
-	$("#table tbody").append(
-		"<tr>" +
-		"<td>"+item+"</td>" +
-		"<td>"+amount+"</td>" +
-		"<td>"+measure+"</td>" +
-		"<td>"+supplier+"</td>" +
-		"</tr>"
-	);
-	num++;
+	if(supplier != "" && item != "" && amount != "" && measure != "") {
+		arr.push(order);
+		$("#table tbody").append(
+			"<tr>" +
+			"<td>" + item + "</td>" +
+			"<td>" + amount + "</td>" +
+			"<td>" + measure + "</td>" +
+			"<td>" + supplier + "</td>" +
+			"</tr>"
+		);
+		num++;
+	}
 }
 
 function deleteRow(){
-	document.getElementById("table").deleteRow(num);
-	arr.pop();
-	num--;
+	if(num>0) {
+		document.getElementById("table").deleteRow(num);
+		arr.pop();
+		num--;
+	}
 }
 
 function sendJSON(){
-	var myJSON = JSON.stringify(arr);
-	document.getElementById("confirm").innerHTML=myJSON;
+	document.getElementById("confirm").innerHTML = "";
+	if(num>0) {
+		var myJSON = JSON.stringify(arr);
+		document.getElementById("confirm").innerHTML = myJSON;
+	}
 }
