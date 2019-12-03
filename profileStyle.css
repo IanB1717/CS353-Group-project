@@ -28,13 +28,14 @@ pre {
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;
-    font-size: 13px;
+    font-size: 18px;
     line-height: 1.42857143;
     color: #000000;
     word-break: break-all;
-    word-wrap: break-word;
+	word-wrap: break-word;
+	font-weight: 3;
     background-color: #ffffff;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
 	border-radius: 4px;
 }
 

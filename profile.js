@@ -2,21 +2,35 @@
 const data = document.querySelector('#data');
 
 function loadData() {
-    db.collection("Users").where("email", "==", "test@test.test")
-        .get()
-        .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                // doc.data() is never undefined for query doc snapshots
-                data.innerHTML +=
-                    `  
-                               Email: ` + doc.data().email + `
-                               Username: ` + doc.data().username + `
-                               name: ` + doc.data().name + `
-                               LastLogin: ` + doc.data().lastLogin;
-                //console.log(doc.id, " => ", doc.data());
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            db.collection("Users").doc(auth.currentUser.uid)
+            .get()
+            .then(function (doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    //var num  = Math.floor((Math.random() * 100) + 1);
+                    data.innerHTML +=
+                        `          
+                                   <img src='https://picsum.photos/100'
+                                   style ='
+                                   border-color:#c8f3f1;
+                                   border-style: solid;
+                                   border-width: 5px;
+                                   border-radius: 50%;'>
+    
+                                   Email: ` + doc.data().email + `
+                                   Username: ` + doc.data().username + `
+                                   name: ` + doc.data().name + `
+                                   LastLogin: ` + doc.data().lastLogin;
+                    //console.log(doc.id, " => ", doc.data());
+            })
+            .catch(function (error) {
+                console.log("Error getting documents: ", error);
             });
-        })
-        .catch(function (error) {
-            console.log("Error getting documents: ", error);
-        });
+        } else {
+          // No user is signed in.
+        }
+      });
+      
+      
 }
