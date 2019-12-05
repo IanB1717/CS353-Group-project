@@ -1,5 +1,6 @@
 function signOut() {
     auth.signOut();
+    window.location.href = "index.html";
 }
 
 function getCurrentDateAndTime() {

@@ -12,12 +12,16 @@
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 	<link rel="stylesheet" href="styles/profileStyle.css">
+	<link rel="stylesheet" href="styles/profileStyle.css">
 
 </head>
 
 <body onload="loadData()">
 	<name>
 		<h1><a href="./index.html" class="menuBar">Chefcity</a></h1>
+		<div id="login-tab">
+			<button id='myBtn' class='btn btn-outline-danger' id = 'logout'onclick = 'signOut()'>Sign Out</button>
+		</div>
 	</name>
 
 	<div class="content">
@@ -58,6 +62,7 @@
 	
 	</script>
 	<script src="scripts/profile.js"></script>
+	<script src="scripts/accounts.js"></script>
 </body>
 
 </html>

@@ -26,6 +26,15 @@ name{
 	position: sticky;
 	top: 0;
 }
+#bar {
+	position: relative;
+}
+#login-tab {
+	position: absolute;
+	right: 30px;
+	top: 35%;
+
+}
 
 .button {
   background-color: #c8f3f1; /* Green */
