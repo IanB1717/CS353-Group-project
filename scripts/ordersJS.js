@@ -22,6 +22,7 @@ function validateForm(){
 	var amount=document.getElementById('quantity').value;
 	var measure=document.getElementById('measure').value;
 	var order=new Order(supplier, item, amount, measure);
+
 	if(supplier != "" && item != "" && amount != "" && measure != "") {
 		arr.push(order);
 		$("#table tbody").append(
@@ -50,4 +51,5 @@ function sendJSON(){
 		var myJSON = JSON.stringify(arr);
 		document.getElementById("confirm").innerHTML = myJSON;
 	}
+
 }

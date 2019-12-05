@@ -19,7 +19,9 @@
 
 	<name>
 		<h1><a href="index.html" class="menuBar"> Chef City</a></h1>
-		<div id = "profile-tab"></div>
+
+		<div id = "profile-tab"></div> 
+
 		<div id="login-tab"></div>
 	</name>
 	<!-- Image and text
@@ -136,26 +138,27 @@
 			</a>-->
 	</div>
 	<script>
-	const firebaseConfig = {
-		apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
-		authDomain: "chefcity-ecbfb.firebaseapp.com",
-		databaseURL: "https://chefcity-ecbfb.firebaseio.com",
-		projectId: "chefcity-ecbfb",
-		storageBucket: "chefcity-ecbfb.appspot.com",
-		messagingSenderId: "583029024558",
-	  appId: "1:583029024558:web:44d2759fadb6350966bcbf",
-	  measurementId: "G-TTL2G91C3D"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  
-  
-</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="scripts/session.js"></script>
-<script src="scripts/login.js"></script>
+		const firebaseConfig = {
+			apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+			authDomain: "chefcity-ecbfb.firebaseapp.com",
+			databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+			projectId: "chefcity-ecbfb",
+			storageBucket: "chefcity-ecbfb.appspot.com",
+			messagingSenderId: "583029024558",
+			appId: "1:583029024558:web:44d2759fadb6350966bcbf",
+			measurementId: "G-TTL2G91C3D"
+		};
 
+		firebase.initializeApp(firebaseConfig);
+
+		const auth = firebase.auth();
+
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="scripts/session.js"></script>
+	<script src="scripts/accounts.js"></script>
 </body>
 
 </html>

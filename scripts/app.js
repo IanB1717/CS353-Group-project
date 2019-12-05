@@ -1,6 +1,7 @@
 const supplierForm = document.querySelector('#add-supplier');
 const supplierList = document.querySelector('#supplier-list');
-const registrationForm= document.querySelector('#registration');
+
+const registrationForm = document.querySelector('#registration');
 
 //create list entry and render it to page
 // function renderSupplier(doc){
@@ -37,22 +38,28 @@ function renderSupplier(doc){
 
     $("#table tbody").append(
         "<tr>" +
-        "<td>"+doc.data().Name+"</td>" +
-        "<td>"+doc.data().RepName+"</td>" +
-        "<td>"+doc.data().Email+"</td>" +
-        "<td>"+doc.data().Account+"</td>" +
+
+        "<td>" + doc.data().Name + "</td>" +
+        "<td>" + doc.data().RepName + "</td>" +
+        "<td>" + doc.data().Email + "</td>" +
+        "<td>" + doc.data().Account + "</td>" +
+
         "</tr>"
     );
 }
 
 db.collection('Suppliers').get().then((snapshot) => {
-    snapshot.docs.forEach(doc =>{
+
+    snapshot.docs.forEach(doc => {
+
         renderSupplier(doc);
     })
 })
 
 //saving data
-supplierForm.addEventListener('submit',(e) =>{
+
+supplierForm.addEventListener('submit', (e) => {
+
     e.preventDefault();
     db.collection('Suppliers').add({
         Name: supplierForm.addName.value,
@@ -66,17 +73,3 @@ supplierForm.addEventListener('submit',(e) =>{
     supplierForm.addAccount.value = '';
 })
 
-//saving registration details
-registrationForm.addEventListener('submit',(e) =>{
-    e.preventDefault();
-    db.collection('Users').add({
-        Name: registrationForm.name.value,
-        Email: registrationForm.email.value,
-        Username: registrationForm.username.value,
-        Password: registrationForm.password.value
-    })
-    registrationForm.addName.value = '';
-    registrationForm.addRep.value = '';
-    registrationForm.addEmail.value = '';
-    registrationForm.addAccount.value = '';
-})

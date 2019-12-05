@@ -4,7 +4,7 @@
 	<title>Login V13</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -28,6 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/util.css">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 
 </head>
@@ -45,31 +46,31 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Full Name</span>
-						<input class="input100" type="text" name="name" placeholder="Name...">
+						<input class="input100" type="text" id = 'name' name="name" placeholder="Name...">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" placeholder="Email addess...">
+						<input class="input100" type="text" id ='email' name="email" placeholder="Email addess...">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Username is required">
 						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Username...">
+						<input class="input100" type="text" id = 'username'name="username" placeholder="Username...">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="*************">
+						<input class="input100" type="password" id ='password'name="pass" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
 						<span class="label-input100">Repeat Password</span>
-						<input class="input100" type="password" name="repeat-pass" placeholder="*************">
+						<input class="input100" type="password" name="repeat_password" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
 
@@ -92,7 +93,8 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type ="submit" class="login100-form-btn">
+							<button type='button' class="login100-form-btn" onclick="signUp()">
+
 								Sign Up
 							</button>
 						</div>
@@ -106,8 +108,7 @@
 			</div>
 		</div>
 	</div>
-	
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
@@ -122,27 +123,23 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-
 <script>
 	const firebaseConfig = {
-		  apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
-		  authDomain: "chefcity-ecbfb.firebaseapp.com",
-		  databaseURL: "https://chefcity-ecbfb.firebaseio.com",
-		  projectId: "chefcity-ecbfb",
-		  storageBucket: "chefcity-ecbfb.appspot.com",
-		  messagingSenderId: "583029024558",
+		apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+		authDomain: "chefcity-ecbfb.firebaseapp.com",
+		databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+		projectId: "chefcity-ecbfb",
+		storageBucket: "chefcity-ecbfb.appspot.com",
+		messagingSenderId: "583029024558",
 		appId: "1:583029024558:web:44d2759fadb6350966bcbf",
 		measurementId: "G-TTL2G91C3D"
 	};
-	firebase.initializeApp(firebaseConfig);
-		
+	firebase.initializeApp(firebaseConfig);	
 	const db = firebase.firestore()
-	db.settings({
-		timestampsInSnapshots: true
-	});
+	const auth = firebase.auth();
 </script>
-<script src="scripts/app.js"></script>
-<script src="scripts/main.js"></script>
+<script src="scripts/accounts.js"></script>
+
 
 </body>
 </html>
