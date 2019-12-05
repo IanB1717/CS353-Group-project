@@ -18,6 +18,7 @@ function loadData() {
                                    border-width: 5px;
                                    border-radius: 50%;'>
     
+
                                    email: ` + doc.data().email + `
                                    username: ` + doc.data().username + `
                                    name: ` + doc.data().name + `
