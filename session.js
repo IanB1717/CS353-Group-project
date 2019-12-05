@@ -5,7 +5,7 @@ function printUser() {
 function checkLogin() {
     auth.onAuthStateChanged(function(user) {
         if (user) {
-            document.getElementById("login-tab").innerHTML = "USER LOGGED IN: <button id='myBtn' class='button' id = 'logout'onclick = 'logOut()'>Sign Out</button>";
+            document.getElementById("login-tab").innerHTML = "USER LOGGED IN: <button id='myBtn' class='button' id = 'logout'onclick = 'signOut()'>Sign Out</button>";
             document.getElementById("profile-tab").innerHTML = "<h3> <button class='button'><i class='glyphicon glyphicon-user'></i><a href='profile.html'>Profile</a> </button></h3>";
         } else {
             document.getElementById("profile-tab").innerHTML = "";

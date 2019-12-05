@@ -18,8 +18,8 @@ function loadData() {
                                    border-width: 5px;
                                    border-radius: 50%;'>
     
-                                   Email: ` + doc.data().email + `
-                                   Username: ` + doc.data().username + `
+                                   email: ` + doc.data().email + `
+                                   username: ` + doc.data().username + `
                                    name: ` + doc.data().name + `
                                    LastLogin: ` + doc.data().lastLogin;
                     //console.log(doc.id, " => ", doc.data());

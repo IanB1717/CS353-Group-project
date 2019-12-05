@@ -1,30 +1,8 @@
 const supplierForm = document.querySelector('#add-supplier');
 const supplierList = document.querySelector('#supplier-list');
-const registrationForm= document.querySelector('#registration');
+const registrationForm = document.querySelector('#registration');
 
-//create list entry and render it to page
-// function renderSupplier(doc){
-//     let li = document.createElement('li');
-//     let name = document.createElement('span');
-//     let rep = document.createElement('span');
-//     let email = document.createElement('span');
-//     let account = document.createElement('span');
-
-//     li.setAttribute('data-id',doc.id);
-//     name.textContent = doc.data().Name;
-//     rep.textContent = doc.data().RepName;
-//     email.textContent = doc.data().Email;
-//     account.textContent = doc.data().Account;
-
-//     li.appendChild(name);
-//     li.appendChild(rep);
-//     li.appendChild(email);
-//     li.appendChild(account);
-
-//     supplierList.appendChild(li);
-// }
-
-function renderSupplier(doc){
+function renderSupplier(doc) {
     let name = document.createElement('span');
     let rep = document.createElement('span');
     let email = document.createElement('span');
@@ -37,22 +15,22 @@ function renderSupplier(doc){
 
     $("#table tbody").append(
         "<tr>" +
-        "<td>"+doc.data().Name+"</td>" +
-        "<td>"+doc.data().RepName+"</td>" +
-        "<td>"+doc.data().Email+"</td>" +
-        "<td>"+doc.data().Account+"</td>" +
+        "<td>" + doc.data().Name + "</td>" +
+        "<td>" + doc.data().RepName + "</td>" +
+        "<td>" + doc.data().Email + "</td>" +
+        "<td>" + doc.data().Account + "</td>" +
         "</tr>"
     );
 }
 
 db.collection('Suppliers').get().then((snapshot) => {
-    snapshot.docs.forEach(doc =>{
+    snapshot.docs.forEach(doc => {
         renderSupplier(doc);
     })
 })
 
 //saving data
-supplierForm.addEventListener('submit',(e) =>{
+supplierForm.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('Suppliers').add({
         Name: supplierForm.addName.value,
@@ -65,16 +43,42 @@ supplierForm.addEventListener('submit',(e) =>{
     supplierForm.addEmail.value = '';
     supplierForm.addAccount.value = '';
 })
-function signup(){
-//saving registration details
-    const registrationForm= document.querySelector('#registration');
-    console.log("Registering...");
+
+
+
+
+
+
+
+
+
+
+
+
+function signup() {
+    const registrationForm = document.querySelector('#registration');
+    const name = registrationForm.name.value;
+    const username = registrationForm.username.value;
+    const email = registrationForm.email.value;
+    const password = registrationForm.password.value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            if (errorCode == 'auth/weak-password') {
+                alert('Your password is too weak.');
+            } else {
+                alert(errorMessage);
+            }
+            console.log(error);
+        });
+
     db.collection('Users').add({
-        Name: registrationForm.name.value,
-        Email: registrationForm.email.value,
-        Username: registrationForm.username.value,
-        Password: registrationForm.pass.value
+        name: name,
+        email: email,
+        username: username,
+        lastLogin: getCurrentDateAndTime(),
     })
-   console.log("Complete.");
 
 }

@@ -44,7 +44,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="button" onclick="login()">
+							<button class="login100-form-btn" type="button" onclick="signIn()">
 								Sign In
 							</button>
 						</div>
@@ -67,18 +67,10 @@
 		};
 
 		firebase.initializeApp(firebaseConfig);
-
 		const auth = firebase.auth();
-
-		const db = firebase.firestore()
-		db.settings({
-			//timestampsInSnapshots: true
-		});
+		const db = firebase.firestore()	
 	</script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="login.js"></script>
-
+	<script src="accounts.js"></script>
 </body>
 
 </html>
