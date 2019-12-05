@@ -27,7 +27,9 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="styles/util.css">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
-<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
 </head>
 <body style="background-color: #999999;">
 	
@@ -36,7 +38,7 @@
 			<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-				<form class="login100-form validate-form">
+				<form id="registration" class="login100-form validate-form">
 					<span class="login100-form-title p-b-59">
 						Sign Up
 					</span>
@@ -90,7 +92,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button type ="submit" class="login100-form-btn">
 								Sign Up
 							</button>
 						</div>
@@ -120,7 +122,27 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="scripts/main.js"></script>
+
+<script>
+	const firebaseConfig = {
+		  apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+		  authDomain: "chefcity-ecbfb.firebaseapp.com",
+		  databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+		  projectId: "chefcity-ecbfb",
+		  storageBucket: "chefcity-ecbfb.appspot.com",
+		  messagingSenderId: "583029024558",
+		appId: "1:583029024558:web:44d2759fadb6350966bcbf",
+		measurementId: "G-TTL2G91C3D"
+	};
+	firebase.initializeApp(firebaseConfig);
+		
+	const db = firebase.firestore()
+	db.settings({
+		timestampsInSnapshots: true
+	});
+</script>
+<script src="scripts/app.js"></script>
+<script src="scripts/main.js"></script>
 
 </body>
 </html>

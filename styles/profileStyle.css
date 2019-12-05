@@ -1,0 +1,74 @@
+* {
+	margin: auto;
+	padding:0;
+	box-sizing: border-box;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('poppins/Poppins-Regular.ttf'); 
+}
+
+name{
+	background-color:#c8f3f1;
+	padding:1%;
+	float:center;
+	display:flex;
+	position: -webkit-sticky;
+	position: sticky;
+	top:0;
+}
+
+h3 {
+	text-align: center;
+}
+
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.42857143;
+    color: #000000;
+    word-break: break-all;
+	word-wrap: break-word;
+	font-weight: 3;
+    background-color: #ffffff;
+    border: 0px solid #ccc;
+	border-radius: 4px;
+}
+
+a:link{text-decoration:none; color:black}
+a:hover{text-decoration:underline; color:black}
+a:visited{text-decoration:none; color:black}
+a:active{text-decoration:none; color:black}
+
+.content{
+	background-color:#f1f1f1;
+	float:center;
+	
+}
+/*This sets the navbar in the center of the page*/
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+.suppliers-content{
+	padding:1%;
+}
+
+.addSup{
+	width:500px;
+}
+.listOfSup{
+	text-align:center;
+	padding:2%;
+}
+
+.buttons{
+	text-align:center;
+	padding:1%;
+}
+
