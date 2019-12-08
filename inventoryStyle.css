@@ -1,0 +1,83 @@
+* {
+	margin: auto;
+	padding:0;
+	box-sizing: border-box;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('poppins/Poppins-Regular.ttf'); 
+}
+
+name{
+	background-color:#c8f3f1;
+	padding:1%;
+	float:center;
+	display:flex;
+	position: -webkit-sticky;
+	position: sticky;
+	top:0;
+}
+
+a:link{text-decoration:none; color:black}
+a:hover{text-decoration:underline; color:black}
+a:visited{text-decoration:none; color:black}
+a:active{text-decoration:none; color:black}
+
+.content{
+	background-color:#f1f1f1;
+	float:center;	
+}
+/*This sets the navbar in the center of the page*/
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+
+/*.inventory{
+	margin:20px 100px;
+	
+}
+.columns{
+	display:flex;
+}
+.panel-default{
+	width:60%;
+	height:auto;
+}
+.panel-heading{
+	text-align:center;
+}
+
+
+.btn-group-vertical{
+	padding:3%;
+}*/
+
+.list-group{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.buttons{
+	text-align:center;
+	padding:1%;
+}
+
+.col-sm-5{
+	float:center;
+	padding:1%;
+}
+
+.addInv{
+	width:500px;
+}
+.listOfInv{
+	text-align:center;
+	padding:2%;
+}
