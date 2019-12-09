@@ -1,29 +1,5 @@
 const supplierForm = document.querySelector('#add-supplier');
-const supplierList = document.querySelector('#supplier-list');
-
 const registrationForm = document.querySelector('#registration');
-
-//create list entry and render it to page
-// function renderSupplier(doc){
-//     let li = document.createElement('li');
-//     let name = document.createElement('span');
-//     let rep = document.createElement('span');
-//     let email = document.createElement('span');
-//     let account = document.createElement('span');
-
-//     li.setAttribute('data-id',doc.id);
-//     name.textContent = doc.data().Name;
-//     rep.textContent = doc.data().RepName;
-//     email.textContent = doc.data().Email;
-//     account.textContent = doc.data().Account;
-
-//     li.appendChild(name);
-//     li.appendChild(rep);
-//     li.appendChild(email);
-//     li.appendChild(account);
-
-//     supplierList.appendChild(li);
-// }
 
 function renderSupplier(doc){
     let name = document.createElement('span');
@@ -48,15 +24,18 @@ function renderSupplier(doc){
     );
 }
 
-db.collection('Suppliers').get().then((snapshot) => {
-
-    snapshot.docs.forEach(doc => {
-
-        renderSupplier(doc);
+//new realtime caller
+db.collection('Suppliers').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    console.log(changes);
+    changes.forEach(change => {
+        if(change.type == 'added'){
+            renderSupplier(change.doc)
+        }else if(change.type == 'remove'){
+           //add removal code 
+        }
     })
 })
-
-//saving data
 
 supplierForm.addEventListener('submit', (e) => {
 
@@ -72,4 +51,5 @@ supplierForm.addEventListener('submit', (e) => {
     supplierForm.addEmail.value = '';
     supplierForm.addAccount.value = '';
 })
+
 
