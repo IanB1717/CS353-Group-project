@@ -11,18 +11,12 @@ function Inventory(item, amount) {
     this.amount = amount;
 }
 
-function validateForm(){
+/*function validateForm(){
     var item=document.getElementById('ingredient').value;
     var amount=document.getElementById('quantity').value;
     var inventory=new Inventory(item, amount);
     if(item != "" && amount != "") {
         arr.push(inventory);
-        $("#table tbody").append(
-            "<tr>" +
-            "<td>" + item + "</td>" +
-            "<td>" + amount + "</td>" +
-            "</tr>"
-        );
         num++;
     }
 }
@@ -41,40 +35,55 @@ function sendJSON(){
         var myJSON = JSON.stringify(arr);
         document.getElementById("confirm").innerHTML = myJSON;
     }
-}
+}*/
 
-const inventoryForm = document.querySelector('#add-item');
-const inventoryList = document.querySelector('#inventory-list');
-const registrationForm= document.querySelector('#registration');
+const foodForm = document.querySelector('#addFood');
+const foodList = document.querySelector('#listofInv');
 
-function renderInventory(doc){
-    let item = document.createElement('span');
-    let amount = document.createElement('span');
+function renderFood(doc){
+    let Name = document.createElement('span');
+    let Supplier = document.createElement('span');
+    let Unit = document.createElement('span');
+    let Id = document.createElement('span');
 
-    item.textContent = doc.data().Item;
-    amount.textContent = doc.data().Amount;
+    Name.textContent = doc.data().Name;
+    Supplier.textContent = doc.data().Supplier;
+    Unit.textContent = doc.data().Unit;
+    Id.textContent = doc.data().Id;
 
     $("#table tbody").append(
         "<tr>" +
-        "<td>"+doc.data().Item+"</td>" +
-        "<td>"+doc.data().Amount+"</td>" +
+        "<td>"+doc.data().Name+"</td>" +
+        "<td>"+doc.data().Supplier+"</td>" +
+        "<td>"+doc.data().Unit+"</td>" +
+        "<td>"+doc.data().Id+"</td>" +
         "</tr>"
     );
 }
 
-db.collection('Inventory').get().then((snapshot) => {
-    snapshot.docs.forEach(doc =>{
-        renderInventory(doc);
+db.collection('FoodItems').onSnapshot(snapshot => {
+    let changes=snapshot.docChanges();
+    changes.forEach(change => {
+        if(change.type=='added'){
+            renderFood(change.doc);
+        }
+        else if(change.type=='remove'){
+
+        }
     })
 })
 
 //saving data
-inventoryForm.addEventListener('submit',(e) =>{
+foodForm.addEventListener('submit',(e) =>{
     e.preventDefault();
-    db.collection('Suppliers').add({
-        Item: inventoryForm.addItem.value,
-        Amount: inventoryForm.addAmount.value,
+    db.collection('FoodItems').add({
+        Name: foodForm.addName.value,
+        Supplier: foodForm.addSupplier.value,
+        Unit: foodForm.addUnit.value,
+        Id: foodForm.addId.value
     })
-    inventoryForm.addItem.value = '';
-    inventoryForm.addAmount.value = '';
+    foodForm.addName.value = '';
+    foodForm.addSupplier.value = '';
+    foodForm.addUnit.value = '';
+    foodForm.addId.value = '';
 })

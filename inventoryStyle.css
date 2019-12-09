@@ -37,11 +37,26 @@ a:active{text-decoration:none; color:black}
 }
 
 
-/*.inventory{
-	margin:20px 100px;
-	
+.inventory{
+	margin:20px 150px;
+
 }
-.columns{
+
+form{
+	display:inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	/*text-align: left;*/
+}
+
+.col-sm-5
+{
+	display: block;
+	text-align: center;
+}
+
+
+/*.columns{
 	display:flex;
 }
 .panel-default{
@@ -55,14 +70,14 @@ a:active{text-decoration:none; color:black}
 
 .btn-group-vertical{
 	padding:3%;
-}*/
+}
 
 .list-group{
     max-height: 300px;
     margin-bottom: 10px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
-}
+}*/
 
 .buttons{
 	text-align:center;
