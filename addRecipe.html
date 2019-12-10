@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Chefcity</title>
+		<link rel="stylesheet" href="styles/addRecipeStyle.css">
+		<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+		
+	</head>
+	<body>
+		<name>
+			<h1><a href="./index.html" class="menuBar">Chefcity</a></h1>
+			<h3><i class="glyphicon glyphicon-user"></i> Profile</h3>
+		</name>
+		
+		<div class="content">
+			<!-- MENU BAR -->
+			<nav class="navbar navbar-light" id="menu">
+			  <div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-center">
+				  <li class="active"><a href="./index.html"><i class="glyphicon glyphicon-home"></i>  Home</a></li>
+				  <li><a href="./inventory.html"><i class="glyphicon glyphicon-cutlery"></i>  My Inventory</a></li>
+				  <li><a href="./recipes.html"><i class="glyphicon glyphicon-book"></i>  Recipes</a></li>
+				  <li><a href="./orders.html"><i class="glyphicon glyphicon-list"></i>  Orders</a></li>
+				  <li><a href="./suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i>  Suppliers</a></li>
+				</ul>
+			  </div>
+			</nav>
+			
+			
+			<div class="recipe-content">
+				
+				<div class="row">
+					<div class="addRecipe">
+							<form id="add-recipe" class="form-horizontal" action="/action_page.php">
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Recipe name:</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id ='name' name="addName" placeholder="Name...">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Meal:</label>
+									<div class="col-sm-10">
+										<input type="radio" id='meal' name="Meal" value="Breakfast"> Breakfast <br>
+						 		 		<input type="radio" id='meal' name="Meal" value="Lunch"> Lunch <br>
+						  				<input type="radio" id='meal' name="Meal" value="Dinner"> Dinner <br>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Method:</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id='method' name="Method" placeholder="Step by step instructions...">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Time:</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id='time' name="Time" placeholder="Time in minutes..">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Cuisine:</label>
+									<div class="col-sm-10">
+										<input type="radio" id='cuisine' name="Cuisine" value="American"> American <br>
+						 		 		<input type="radio" id='cuisine' name="Cuisine" value="Chinese"> Chinese <br>
+						  				<input type="radio" id='cuisine' name="Cuisine" value="Hawaiian"> Hawaiian <br>
+						  				<input type="radio" id='cuisine' name="Cuisine" value="Indian"> Indian  <br>
+						  				<input type="radio" id='cuisine' name="Cuisine" value="Italian"> Italian <br>
+						  				<input type="radio" id='cuisine' name="Cuisine" value="Japanese"> Japanese <br>
+						  				<input type="radio" id='cuisine' name="Cuisine" value="Spanish"> Spanish <br>
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Complexity:</label>
+									<div class="col-sm-10">
+										<input type="radio" id='complex' name="Complexity" value="Easy"> Easy <br>
+						 		 		<input type="radio" id='complex' name="Complexity" value="Moderate"> Moderate <br>
+						  				<input type="radio" id='complex' name="Complexity" value="Difficult"> Difficult <br>
+						  				<input type="radio" id='complex' name="Complexity" value="Complex"> Complex <br>
+									</div>
+								</div>
+								<button onclick='addRecipe()' type="button" class="btn btn-default">Submit</button>
+							</form>						
+					</div>
+			</div>
+		</div>
+		<script>
+			const firebaseConfig = {
+  				apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+  				authDomain: "chefcity-ecbfb.firebaseapp.com",
+  				databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+  				projectId: "chefcity-ecbfb",
+  				storageBucket: "chefcity-ecbfb.appspot.com",
+  				messagingSenderId: "583029024558",
+				appId: "1:583029024558:web:44d2759fadb6350966bcbf",
+				measurementId: "G-TTL2G91C3D"
+			};
+
+			firebase.initializeApp(firebaseConfig);
+			
+			const db = firebase.firestore()
+			db.settings({
+				timestampsInSnapshots: true
+			});
+		</script>
+		<script src="scripts/app.js"></script>
+	
+	</body>
+</html>
+
