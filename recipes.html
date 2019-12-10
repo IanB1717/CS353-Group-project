@@ -8,8 +8,10 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 	</head>
-	<body>
+	<body onload="loadRecipes()">
 		<name>
 			<h1><a href="./index.html" class="menuBar">Chefcity</a></h1>
 			<h3><i class="glyphicon glyphicon-user"></i> Profile</h3>
@@ -38,30 +40,31 @@
 							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Meals
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Breakfast</a></li>
-								<li><a href="#">Lunch</a></li>
-								<li><a href="#">Dinner</a></li>
+								<li><a onclick="specificRecipes('Meal', '==', 'Breakfast')" href="#">Breakfast</a></li>
+								<li><a onclick="specificRecipes('Meal', '==', 'Lunch')" href="#">Lunch</a></li>
+								<li><a onclick="specificRecipes('Meal', '==', 'Dinner')" href="#">Dinner</a></li>
 							</ul>
 						</div>
 						<div class="dropdown">
 							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Complexity
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="#">High</a></li>
-								<li><a href="#">Medium</a></li>
-								<li><a href="#">Low</a></li>
+								<li><a onclick="specificRecipes('Complexity', '==', 'Easy')" href="#">Easy</a></li>
+								<li><a onclick="specificRecipes('Complexity', '==', 'Moderate')" href="#">Moderate</a></li>
+								<li><a onclick="specificRecipes('Complexity', '==', 'Difficult')" href="#">Difficult</a></li>
+								<li><a onclick="specificRecipes('Complexity', '==', 'Complex')" href="#">Complex</a></li>
 							</ul>
 						</div>
 						<div class="dropdown">
 							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Cooking time
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="#">15 min</a></li>
-								<li><a href="#">30 min</a></li>
-								<li><a href="#">45 min</a></li>	
-								<li><a href="#">1 hour</a></li>
-								<li><a href="#">1.5 hours</a></li>
-								<li><a href="#">2 hours</a></li>
+								<li><a onclick="specificRecipes('Time', '<=', '15')" href="#">15 min</a></li>
+								<li><a onclick="specificRecipes('Time', '<=', '30')" href="#">30 min</a></li>
+								<li><a onclick="specificRecipes('Time', ''<=', '45')" href="#">45 min</a></li>	
+								<li><a onclick="specificRecipes('Time', '<=', '60')" href="#">1 hour</a></li>
+								<li><a onclick="specificRecipes('Time', '<=', '90')" href="#">1.5 hours</a></li>
+								<li><a onclick="specificRecipes('Time', '<=', '120')" href="#">2 hours</a></li>
 							</ul>
 						</div>
 						
@@ -70,15 +73,16 @@
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
 								<input class="form-control" id="myInput" type="text" placeholder="Search..">
-								<li><a href="#">American</a></li>
-								<li><a href="#">Indian</a></li>
-								<li><a href="#">Spanish</a></li>
-								<li><a href="#">Italian</a></li>
-								<li><a href="#">Hawaiian</a></li>
-								<li><a href="#">Chinese</a></li>
-								<li><a href="#">Japanese</a></li>
+								<li><a onclick="specificRecipes('Cuisine', '==', 'American')" href="#">American</a></li>
+								<li><a onclick="specificRecipes('Cuisine', '==', 'Indian')" href="#">Indian</a></li>
+								<li><a onclick="specificRecipes('Cuisine', '==', 'Spanish')" href="#">Spanish</a></li>
+								<li><a onclick="specificRecipes('Cuisine', '==', 'Italian')" href="#">Italian</a></li>
+								<li><a onclick="specificRecipes('Cuisine', '==', 'Hawaiian')" href="#">Hawaiian</a></li>
+								<li><a onclick="specificRecipes('Cuisine', '==', 'Chinese')" href="#">Chinese</a></li>
+								<li><a onclick="specificRecipes('Cuisine', '==', 'Japanese')" href="#">Japanese</a></li>
 							</ul>
 						</div>
+						<button onclick="location.href='./recipes.html'"type="button" class="btn btn-info btn-md">Load all Recipes</button>
 						<script>
 						$(document).ready(function(){
 						  $("#myInput").on("keyup", function() {
@@ -91,49 +95,45 @@
 						</script>
 						
 					</div>
-					<div class="col-sm-6">
-						<div class="media">
-							<div class="media-left">
-							  <img src="img_avatar1.png" class="media-object" style="width:60px">
-							</div>
-							<div class="media-body">
-							  <h4 class="media-heading">Recipe name</h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/>
-							  Tags: Cooking time ; Complexity ; Ciusine</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-							  <img src="img_avatar1.png" class="media-object" style="width:60px">
-							</div>
-							<div class="media-body">
-							  <h4 class="media-heading">Recipe name</h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/>
-							  Tags: Cooking time ; Complexity ; Ciusine</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-							  <img src="img_avatar1.png" class="media-object" style="width:60px">
-							</div>
-							<div class="media-body">
-							  <h4 class="media-heading">Recipe name</h4>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/>
-							  Tags: Cooking time ; Complexity ; Ciusine</p>
-							</div>
-						</div>
+
+					<div id='list' class="col-sm-6">
+						<ul id="recipeList"></ul>
 					</div>
+
 					<div class="col-sm-3">
 						<h5>Do you have new ideas?</h5>
-						<button type="button" class="btn btn-info btn-md">Add new recipe!</button></br>
+						<button onclick="location.href='./addRecipe.html'"type="button" class="btn btn-info btn-md">Add new recipe!</button></br>
 						<h5>See your favourite recipes</h5>
 						<button type="button" class="btn btn-info btn-md">Fav recipes</button>
-					</div>					
-				</div>
-				
-			</div>
+					</div>	
+
 			
+				</div>
+
+			</div>
+
 		</div>
 	
+					
+		<script>
+			const firebaseConfig = {
+  				apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+  				authDomain: "chefcity-ecbfb.firebaseapp.com",
+  				databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+  				projectId: "chefcity-ecbfb",
+  				storageBucket: "chefcity-ecbfb.appspot.com",
+  				messagingSenderId: "583029024558",
+				appId: "1:583029024558:web:44d2759fadb6350966bcbf",
+				measurementId: "G-TTL2G91C3D"
+			};
+
+			firebase.initializeApp(firebaseConfig);
+			
+			const db = firebase.firestore()
+			db.settings({
+				timestampsInSnapshots: true
+			});
+		</script>
+		<script src="scripts/app.js"></script>
 	</body>
 </html>
