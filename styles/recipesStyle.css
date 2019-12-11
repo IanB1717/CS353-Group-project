@@ -50,3 +50,19 @@ a:active{text-decoration:none; color:black}
 	padding:1%;
 }
 
+#list ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+#list li span{
+    display: block;
+    background: white;
+}
+
+#list li span:nth-child(1){
+    font-size: 20px;
+    font: bold;
+    margin-top: 6px;
+    color: #15bcbf;
+}
