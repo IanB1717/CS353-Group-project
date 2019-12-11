@@ -61,7 +61,7 @@
 							<ul class="dropdown-menu">
 								<li><a onclick="specificRecipes('Time', '<=', '15')" href="#">15 min</a></li>
 								<li><a onclick="specificRecipes('Time', '<=', '30')" href="#">30 min</a></li>
-								<li><a onclick="specificRecipes('Time', ''<=', '45')" href="#">45 min</a></li>	
+								<li><a onclick="specificRecipes('Time', '<=', '45')" href="#">45 min</a></li>	
 								<li><a onclick="specificRecipes('Time', '<=', '60')" href="#">1 hour</a></li>
 								<li><a onclick="specificRecipes('Time', '<=', '90')" href="#">1.5 hours</a></li>
 								<li><a onclick="specificRecipes('Time', '<=', '120')" href="#">2 hours</a></li>
@@ -126,7 +126,6 @@
 				appId: "1:583029024558:web:44d2759fadb6350966bcbf",
 				measurementId: "G-TTL2G91C3D"
 			};
-
 			firebase.initializeApp(firebaseConfig);
 			
 			const db = firebase.firestore()
