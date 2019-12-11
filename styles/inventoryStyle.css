@@ -36,30 +36,12 @@ a:active{text-decoration:none; color:black}
     transform: translatex(-50%);
 }
 
+
 .inventory{
-	max-width: 1000px;
-	margin:auto;
+	margin:20px 100px;
+	
 }
-
-.form-group{
-	display: flex;
-	justify-content: center;
-}
-
-#submit{
-	text-align:center;
-	padding:1%;
-}
-
-#addFood{
-	width:800px;
-}
-
-.listOfInv{
-	padding:2%;
-}
-
-/*.columns{
+.columns{
 	display:flex;
 }
 .panel-default{
@@ -80,4 +62,5 @@ a:active{text-decoration:none; color:black}
     margin-bottom: 10px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
-}*/
+}
+
