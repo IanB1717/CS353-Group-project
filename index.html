@@ -21,85 +21,62 @@
 
   <body onload="checkLogin()">
     <name id="bar">
-      <h1><a href="index.html" class="menuBar"> Chef City</a></h1>
+      <h1><a href="index1.html"> Chef City</a></h1>
 
       <div id="profile-tab"></div>
 
       <div id="login-tab"></div>
     </name>
 
-    <div>
-      <div class="content">
-        <div class="row">
-          <img id="imgInventory" src="./images/inventory.jpg" alt="Chania" />
-          <div class="description">
-            <h3><a href="./inventory.html">My inventory</a></h3>
-            <p>
-              Description of the inventory: Lorem ipsum dolor sit amet
-              consectetur adipiscing elit interdum a, vel tempor laoreet
-              faucibus sed magnis elementum lectus dui, turpis et in venenatis
-              consequat mollis velit sodales. Hac dui curae varius placerat
-              vulputate aptent imperdiet torquent sociosqu posuere in, gravida
-              mattis consequat facilisis potenti lectus mauris ut sagittis.
-              Hendrerit ligula felis consequat scelerisque pellentesque commodo
-              purus, at ridiculus parturient praesent ut arcu mollis iaculis,
-              himenaeos massa convallis porta leo dui.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="description">
-            <h3><a href="./recipes.html">Recipes</a></h3>
-            <p>
-              Description of the recipes:Lorem ipsum dolor sit amet consectetur
-              adipiscing elit interdum a, vel tempor laoreet faucibus sed magnis
-              elementum lectus dui, turpis et in venenatis consequat mollis
-              velit sodales. Hac dui curae varius placerat vulputate aptent
-              imperdiet torquent sociosqu posuere in, gravida mattis consequat
-              facilisis potenti lectus mauris ut sagittis. Hendrerit ligula
-              felis consequat scelerisque pellentesque commodo purus, at
-              ridiculus parturient praesent ut arcu mollis iaculis, himenaeos
-              massa convallis porta leo dui.
-            </p>
-          </div>
-          <img id="imgRecipes" src="./images/recipes.jpg" />
-        </div>
-        <div class="row">
-          <img id="imgOrders" src="./images/orders.jpg" />
-          <div class="description">
-            <h3><a href="./orders.html">Orders</a></h3>
-            <p>
-              Description of the orders: Lorem ipsum dolor sit amet consectetur
-              adipiscing elit interdum a, vel tempor laoreet faucibus sed magnis
-              elementum lectus dui, turpis et in venenatis consequat mollis
-              velit sodales. Hac dui curae varius placerat vulputate aptent
-              imperdiet torquent sociosqu posuere in, gravida mattis consequat
-              facilisis potenti lectus mauris ut sagittis. Hendrerit ligula
-              felis consequat scelerisque pellentesque commodo purus, at
-              ridiculus parturient praesent ut arcu mollis iaculis, himenaeos
-              massa convallis porta leo dui.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="description">
-            <h3><a href="./suppliers.html">Suppliers</a></h3>
-            <p>
-              Description of the suppliers: Lorem ipsum dolor sit amet
-              consectetur adipiscing elit interdum a, vel tempor laoreet
-              faucibus sed magnis elementum lectus dui, turpis et in venenatis
-              consequat mollis velit sodales. Hac dui curae varius placerat
-              vulputate aptent imperdiet torquent sociosqu posuere in, gravida
-              mattis consequat facilisis potenti lectus mauris ut sagittis.
-              Hendrerit ligula felis consequat scelerisque pellentesque commodo
-              purus, at ridiculus parturient praesent ut arcu mollis iaculis,
-              himenaeos massa convallis porta leo dui.
-            </p>
-          </div>
-          <img id="imgSuppliers" src="./images/suppliers.jpg" />
-        </div>
+    <div id="main">
+      <div id="text">
+        <h3>
+          Welcome to Chef City. We save you time on your ordering so you can
+          spend more time cooking.
+        </h3>
+      </div>
+      <div id="inventory" onclick="window.location.href = 'inventory.html';
+      ">
+        <img
+          src="images/inventory.jpg"
+          style="max-height:100%;
+        filter: blur(4px);
+        -webkit-filter: blur(4px);"
+        />
+        <div id="textover">Inventory</div>
+      </div>
+
+      <div id="recipes" onclick="window.location.href = 'recipes.html'">
+        <img
+          src="images/recipes.jpg"
+          style="max-height:100%;
+          filter: blur(4px);
+          -webkit-filter: blur(4px);"
+        />
+        <div id="textover">Recipes</div>
+      </div>
+
+      <div id="orders" onclick="window.location.href = 'orders.html'">
+        <img
+          src="images/orders.jpg"
+          style="max-height:100%;
+          filter: blur(4px);
+          -webkit-filter: blur(4px);"
+        />
+        <div id="textover">Orders</div>
+      </div>
+
+      <div id="suppliers" onclick="window.location.href = 'suppliers.html'">
+        <img
+          src="images/suppliers.jpg"
+          style="max-height:100%;
+          filter: blur(4px);
+          -webkit-filter: blur(4px);"
+        />
+        <div id="textover">Suppliers</div>
       </div>
     </div>
+
     <script>
       const firebaseConfig = {
         apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
@@ -121,4 +98,10 @@
     <script src="scripts/session.js"></script>
     <script src="scripts/accounts.js"></script>
   </body>
+
+  <footer class="footer">
+    <p class="copyright-text">
+      Copyright &copy; 2017 All Rights Reserved by Chef City
+    </p>
+  </footer>
 </html>
