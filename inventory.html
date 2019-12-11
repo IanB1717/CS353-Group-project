@@ -10,6 +10,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 	</head>
 	<body>
 		<name>
@@ -58,13 +59,34 @@
 									<input type="text" class="form-control" id="addId" placeholder="Id" required>
 								</div>
 							</div>
-                            <div id="submit">
-							    <button type="submit" class="btn btn-default">Submit</button>
-                            </div>
+							<button type="submit" class="btn btn-default">Submit</button>
 						</form>
+						<!--<div class="buttons">
+							<button type="submit" class="btn btn-default" onclick="validateForm()">Add item</button>
+							<button type="cancel" class="btn btn-default" onclick="deleteRow()">Delete previous</button>
+						</div>
+						<div class="buttons">
+							<button type ="submit" class="btn btn-default" onclick="sendJSON()">Submit order</button>
+						</div>
+						<p id="confirm"></p>-->
 					</div>
 				</div>
 			</div>
+			<!--<div class="inventory">
+				<div class="col-sm-5">
+					<h4>Items to be added:</h4>
+					<table class="table" id="table">
+						<thead>
+						<tr>
+							<th>Ingredient</th>
+							<th>Quantity</th>
+						</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>-->
 			<div class="inventory">
 				<div class="listOfInv">
 					<h4>Current inventory on system:</h4>
@@ -74,9 +96,7 @@
 						<thead>
 						<tr>
 							<th>Item</th>
-                            <th>Supplier</th>
 							<th>Amount</th>
-                            <th>Id</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -98,9 +118,8 @@
 				appId: "1:583029024558:web:44d2759fadb6350966bcbf",
 				measurementId: "G-TTL2G91C3D"
 			};
-
 			firebase.initializeApp(firebaseConfig);
-
+			const auth = firebase.auth();
 			const db = firebase.firestore()
 			db.settings({
 				timestampsInSnapshots: true

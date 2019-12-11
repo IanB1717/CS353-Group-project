@@ -8,6 +8,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 		</head>
 	<body>
 		<name>
@@ -47,21 +50,9 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Measure unit:</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="measure" placeholder="Enter measure unit" required>
-								</div>
-							</div>
-							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">Quantity:</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="quantity" placeholder="Enter quantity" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Supplier:</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="supplier" placeholder="Enter supplier" required>
 								</div>
 							</div>
 						</form>
@@ -72,7 +63,6 @@
 						<div class="buttons">
 							<button type ="submit" class="btn btn-default" onclick="sendJSON()">Submit order</button>
 						</div>
-						<p id="confirm"></p>
 					</div>
 					<div class="col-sm-5">
 						<h4>Shopping List:</h4>
@@ -81,8 +71,6 @@
 								<tr>
 									<th>Ingredient</th>
 									<th>Quantity</th>
-									<th>Units</th>
-									<th>Supplier</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -93,6 +81,25 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			const firebaseConfig = {
+  				apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+  				authDomain: "chefcity-ecbfb.firebaseapp.com",
+  				databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+  				projectId: "chefcity-ecbfb",
+  				storageBucket: "chefcity-ecbfb.appspot.com",
+  				messagingSenderId: "583029024558",
+				appId: "1:583029024558:web:44d2759fadb6350966bcbf",
+				measurementId: "G-TTL2G91C3D"
+			};
+
+			firebase.initializeApp(firebaseConfig);
+			const auth = firebase.auth();
+			const db = firebase.firestore()
+			db.settings({
+				timestampsInSnapshots: true
+			});
+		</script>
 		<script src="scripts/ordersJS.js"></script>
 	</body>
 </html>
