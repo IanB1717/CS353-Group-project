@@ -1,42 +1,3 @@
-var arr=[];
-var num=0;
-
-function Inventory(){
-    item="";
-    amount="";
-}
-
-function Inventory(item, amount) {
-    this.item = item;
-    this.amount = amount;
-}
-
-/*function validateForm(){
-    var item=document.getElementById('ingredient').value;
-    var amount=document.getElementById('quantity').value;
-    var inventory=new Inventory(item, amount);
-    if(item != "" && amount != "") {
-        arr.push(inventory);
-        num++;
-    }
-}
-
-function deleteRow(){
-    if(num>0) {
-        document.getElementById("table").deleteRow(num);
-        arr.pop();
-        num--;
-    }
-}
-
-function sendJSON(){
-    document.getElementById("confirm").innerHTML = "";
-    if(num>0) {
-        var myJSON = JSON.stringify(arr);
-        document.getElementById("confirm").innerHTML = myJSON;
-    }
-}*/
-
 const foodForm = document.querySelector('#addFood');
 const foodList = document.querySelector('#listofInv');
 
@@ -63,8 +24,9 @@ function renderFood(doc){
 
 db.collection('FoodItems').onSnapshot(snapshot => {
     let changes=snapshot.docChanges();
+    var userId = auth.currentUser.uid;
     changes.forEach(change => {
-        if(change.type=='added'){
+        if(change.type=='added' && change.doc.data().User == userId){
             renderFood(change.doc);
         }
         else if(change.type=='remove'){
@@ -75,12 +37,14 @@ db.collection('FoodItems').onSnapshot(snapshot => {
 
 //saving data
 foodForm.addEventListener('submit',(e) =>{
+    var userId = auth.currentUser.uid;
     e.preventDefault();
     db.collection('FoodItems').add({
         Name: foodForm.addName.value,
         Supplier: foodForm.addSupplier.value,
         Unit: foodForm.addUnit.value,
-        Id: foodForm.addId.value
+        Id: foodForm.addId.value,
+        User: userId
     })
     foodForm.addName.value = '';
     foodForm.addSupplier.value = '';
