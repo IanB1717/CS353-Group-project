@@ -36,25 +36,28 @@ a:active{text-decoration:none; color:black}
     transform: translatex(-50%);
 }
 
-
 .inventory{
-	margin:20px 150px;
-
+	max-width: 1000px;
+	margin:auto;
 }
 
-form{
-	display:inline-block;
-	margin-left: auto;
-	margin-right: auto;
-	/*text-align: left;*/
+.form-group{
+	display: flex;
+	justify-content: center;
 }
 
-.col-sm-5
-{
-	display: block;
-	text-align: center;
+#submit{
+	text-align:center;
+	padding:1%;
 }
 
+#addFood{
+	width:800px;
+}
+
+.listOfInv{
+	padding:2%;
+}
 
 /*.columns{
 	display:flex;
@@ -78,21 +81,3 @@ form{
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
 }*/
-
-.buttons{
-	text-align:center;
-	padding:1%;
-}
-
-.col-sm-5{
-	float:center;
-	padding:1%;
-}
-
-.addInv{
-	width:500px;
-}
-.listOfInv{
-	text-align:center;
-	padding:2%;
-}
