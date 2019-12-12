@@ -1,107 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Chef City</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Exo+2&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Chef City</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-  <body onload="checkLogin()">
-    <name id="bar">
-      <h1><a href="index1.html"> Chef City</a></h1>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+</head>
 
-      <div id="profile-tab"></div>
+<body onload="checkLoginForTitleBar(); checkLoginForHomeButtons();">
+  <name id="bar">
+    <h1><a href="index.html"> <img src="images/logo.png" alt="Chef City" width="150px"></a></h1>
 
-      <div id="login-tab"></div>
-    </name>
+    <div id="profile-tab"></div>
 
-    <div id="main">
-      <div id="text">
-        <h3>
-          Welcome to Chef City. We save you time on your ordering so you can
-          spend more time cooking.
-        </h3>
-      </div>
-      <div id="inventory" onclick="window.location.href = 'inventory.html';
-      ">
-        <img
-          src="images/inventory.jpg"
-          style="max-height:100%;
-        filter: blur(4px);
-        -webkit-filter: blur(4px);"
-        />
-        <div id="textover">Inventory</div>
-      </div>
+    <div id="login-tab"></div>
+  </name>
+ 
+  <div id="text">
+    <h3>
+      Welcome to Chef City. We save you time on your ordering so you can
+      spend more time cooking.
+    </h3>
+  </div>
 
-      <div id="recipes" onclick="window.location.href = 'recipes.html'">
-        <img
-          src="images/recipes.jpg"
-          style="max-height:100%;
-          filter: blur(4px);
-          -webkit-filter: blur(4px);"
-        />
-        <div id="textover">Recipes</div>
-      </div>
-
-      <div id="orders" onclick="window.location.href = 'orders.html'">
-        <img
-          src="images/orders.jpg"
-          style="max-height:100%;
-          filter: blur(4px);
-          -webkit-filter: blur(4px);"
-        />
-        <div id="textover">Orders</div>
-      </div>
-
-      <div id="suppliers" onclick="window.location.href = 'suppliers.html'">
-        <img
-          src="images/suppliers.jpg"
-          style="max-height:100%;
-          filter: blur(4px);
-          -webkit-filter: blur(4px);"
-        />
-        <div id="textover">Suppliers</div>
-      </div>
+  <div id="main">
+    <div id="inventory" onclick="window.location.href = 'inventory.html';">
+      <img src="images/inventory.jpg" class="homeButtons">
+      <div id="textover">Inventory</div>
     </div>
 
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
-        authDomain: "chefcity-ecbfb.firebaseapp.com",
-        databaseURL: "https://chefcity-ecbfb.firebaseio.com",
-        projectId: "chefcity-ecbfb",
-        storageBucket: "chefcity-ecbfb.appspot.com",
-        messagingSenderId: "583029024558",
-        appId: "1:583029024558:web:44d2759fadb6350966bcbf",
-        measurementId: "G-TTL2G91C3D"
-      };
+    <div id="recipes" onclick="window.location.href = 'recipes.html'">
+      <img src="images/recipes.jpg" class="homeButtons">
+      <div id="textover">Recipes</div>
+    </div>
 
-      firebase.initializeApp(firebaseConfig);
+    <div id="orders" onclick="window.location.href = 'orders.html'">
+      <img src="images/orders.jpg" class="homeButtons">
+      <div id="textover">Orders</div>
+    </div>
 
-      const auth = firebase.auth();
-    </script>
+    <div id="suppliers" onclick="window.location.href = 'suppliers.html'">
+      <img src="images/suppliers.jpg" class="homeButtons">
+      <div id="textover">Suppliers</div>
+    </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="scripts/session.js"></script>
-    <script src="scripts/accounts.js"></script>
-  </body>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCyBxoZBwJHMMfDB5-XvfDETUaDHFAnXFc",
+      authDomain: "chefcity-ecbfb.firebaseapp.com",
+      databaseURL: "https://chefcity-ecbfb.firebaseio.com",
+      projectId: "chefcity-ecbfb",
+      storageBucket: "chefcity-ecbfb.appspot.com",
+      messagingSenderId: "583029024558",
+      appId: "1:583029024558:web:44d2759fadb6350966bcbf",
+      measurementId: "G-TTL2G91C3D"
+    };
 
-  <footer class="footer">
-    <p class="copyright-text">
-      Copyright &copy; 2017 All Rights Reserved by Chef City
-    </p>
-  </footer>
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/session.js"></script>
+  <script src="scripts/accounts.js"></script>
+</body>
+
+<footer class="footer">
+  <p class="copyright-text">
+    Copyright &copy; 2017 All Rights Reserved by Chef City
+  </p>
+</footer>
+
 </html>

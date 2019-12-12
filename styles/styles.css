@@ -1,6 +1,8 @@
 ﻿body {
   max-width: 100%;
+  max-height: 100%;
   overflow-x: hidden; 
+  overflow-y: hidden; 
 }
   * {
   margin: auto;
@@ -14,28 +16,17 @@
   src: url("poppins/Poppins-Regular.ttf");
 }
 
-a:link {
-  text-decoration: none;
-  color: black;
-}
-a:hover {
-  text-decoration: underline;
-  color: black;
-}
-a:visited {
-  text-decoration: none;
-  color: white;
-}
-a:active {
-  text-decoration: none;
-  color: white;
-}
+a:link{text-decoration:none; color:#242424}
+a:hover{text-decoration:underline; color:#242424}
+a:visited{text-decoration:none; color:#242424}
+a:active{text-decoration:none; color:#545454}
+
 
 /*No se como hacer que la cabecera parezca más bonita xD*/
 /*Me gustaría poner al lado del nombre de la web un logo (que no tenemos todavía)
  * y ponerla de otro color o algo así y más mona*/
 name {
-  background-color: #474647;
+  background-color: #242424;
   padding: 1%;
   display: flex;
   position: -webkit-sticky;
@@ -44,6 +35,9 @@ name {
 }
 #bar {
   position: relative;
+  margin: 0px;
+  padding: 5px;
+  padding-left: 15px;
 }
 #login-tab {
   position: absolute;
@@ -151,24 +145,34 @@ name {
   margin-left: 4%;
   overflow: hidden;
 }
-
+#menu {
+  color: #242424;
+}
 #recipes {
-	border: 2px #474647;
+	border: 2px #242424;
 	border-style: solid;
 
 }
 #orders {
-	border: 2px #474647;
+	border: 2px #242424;
 	border-style: solid;
 }
 #inventory {
-	border: 2px #474647;
+	border: 2px #242424;
 	border-style: solid;
 }
 #suppliers {
-	border: 2px #474647;
+	border: 2px #242424;
 	border-style: solid;
 }
+
+
+.homeButtons {
+  max-height:100%;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+
 #textover {
   position: absolute;
   top: 50%;
@@ -179,6 +183,16 @@ name {
   transform: translate(-50%, -50%);
   text-shadow: 2px 2px #000000;
 }
+#textover1 {
+  position: absolute;
+   color: white;
+  font-size: 13px;
+  font-weight: 3;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px #000000;
+  }
 
 h3 {
 	position: relative;
@@ -186,6 +200,11 @@ h3 {
 		top: 50%;
 	transform: translate(0, -90%);
 
+}
+
+a {
+  color: #242424;
+ 
 }
 #text {
 	display: inline-block;

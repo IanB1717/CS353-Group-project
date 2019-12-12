@@ -13,7 +13,7 @@ function loadData() {
                         `          
                                    <img src='https://picsum.photos/100'
                                    style ='
-                                   border-color:#c8f3f1;
+                                   border-color:#242424;
                                    border-style: solid;
                                    border-width: 5px;
                                    border-radius: 50%;'>
