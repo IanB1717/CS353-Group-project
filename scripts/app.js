@@ -6,6 +6,15 @@ function renderSupplier(doc){
     let rep = document.createElement('span');
     let email = document.createElement('span');
     let account = document.createElement('span');
+    var del = document.createElement('div');
+
+    var button = document.createElement("button");
+    button.className = "delButton";
+    button.setAttribute("value", doc.id);
+    button.setAttribute("name", "X");
+    button.setAttribute("onclick", "deleteSupplier(this.value)");
+    button.innerHTML = "X";
+    del.appendChild(button);
 
     name.textContent = doc.data().Name;
     rep.textContent = doc.data().RepName;
@@ -19,9 +28,14 @@ function renderSupplier(doc){
         "<td>" + doc.data().RepName + "</td>" +
         "<td>" + doc.data().Email + "</td>" +
         "<td>" + doc.data().Account + "</td>" +
-
+        "<td>"+del.innerHTML+"</td>" +
         "</tr>"
     );
+}
+
+function deleteSupplier(doc){
+    //console.log(doc);
+    db.collection('Suppliers').doc(doc).delete();
 }
 
 //new realtime caller
@@ -32,8 +46,18 @@ db.collection('Suppliers').onSnapshot(snapshot => {
     changes.forEach(change => {
         if(change.type == 'added' && change.doc.data().User == userId){
             renderSupplier(change.doc)
-        }else if(change.type == 'remove'){
-           //add removal code 
+        }else if(change.type == 'removed'){
+            var toRemove = change.doc.data().Name;
+            console.log(toRemove);
+            var table = document.getElementById("table");
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                //console.log(row.cells[0].innerHTML);
+                if(toRemove == row.cells[0].innerHTML){
+                    console.log(row.cells[0].innerHTML);
+                    table.deleteRow(i);
+                    //break;
+               }
+            } 
         }
     })
 })

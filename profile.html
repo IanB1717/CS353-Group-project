@@ -12,24 +12,27 @@
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 	<link rel="stylesheet" href="styles/profileStyle.css">
+	<link rel="stylesheet" href="styles/styles.css">
 
 </head>
 
 <body onload="loadData()">
-	<name>
-		<h1><a href="./index.html" class="menuBar">Chefcity</a></h1>
-	</name>
+
+	<name id="bar">
+		<h1><a href="index.html"> <img src="images/logo.png" alt="Chef City" width="150px"></a></h1>
+		<div id="login-tab"><button id='myBtn' class='btn btn-outline-danger' onclick = 'signOut()'>Sign Out</button></div>
+	  </name>
+	 
 
 	<div class="content">
 		<!-- MENU BAR -->
 		<nav class="navbar navbar-light" id="menu">
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-center">
-					<li class="active"><a href="./index.html"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-					<li><a href="./inventory.html"><i class="glyphicon glyphicon-cutlery"></i> My Inventory</a></li>
-					<li><a href="./recipes.html"><i class="glyphicon glyphicon-book"></i> Recipes</a></li>
-					<li><a href="./orders.html"><i class="glyphicon glyphicon-list"></i> Orders</a></li>
-					<li><a href="./suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i> Suppliers</a></li>
+					<li><a href="inventory.html"><i class="glyphicon glyphicon-cutlery"></i> Products</a></li>
+					<li><a href="recipes.html"><i class="glyphicon glyphicon-book"></i> Recipes</a></li>
+					<li><a href="orders.html"><i class="glyphicon glyphicon-list"></i> Orders</a></li>
+					<li><a href="suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i> Suppliers</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -51,13 +54,13 @@
 			appId: "1:583029024558:web:44d2759fadb6350966bcbf",
 			measurementId: "G-TTL2G91C3D"
 		};
-
 		firebase.initializeApp(firebaseConfig);
 		const auth = firebase.auth();
 		const db = firebase.firestore()
 	
 	</script>
 	<script src="scripts/profile.js"></script>
+	<script src="scripts/accounts.js"></script>
 </body>
 
 </html>

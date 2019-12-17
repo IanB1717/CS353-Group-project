@@ -36,31 +36,26 @@ a:active{text-decoration:none; color:black}
     transform: translatex(-50%);
 }
 
-
 .inventory{
-	margin:20px 100px;
-	
+	max-width: 1000px;
+	margin:auto;
 }
-.columns{
-	display:flex;
+
+.form-group{
+	display: flex;
+	justify-content: center;
 }
-.panel-default{
-	width:60%;
-	height:auto;
-}
-.panel-heading{
+
+#submit{
 	text-align:center;
+	padding:1%;
 }
 
-
-.btn-group-vertical{
-	padding:3%;
+#addFood{
+	width:800px;
 }
 
-.list-group{
-    max-height: 300px;
-    margin-bottom: 10px;
-    overflow:scroll;
-    -webkit-overflow-scrolling: touch;
+.listOfInv{
+	padding:2%;
 }
 

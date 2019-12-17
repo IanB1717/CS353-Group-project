@@ -1,4 +1,3 @@
-
 const data = document.querySelector('#data');
 
 function loadData() {
@@ -13,14 +12,13 @@ function loadData() {
                         `          
                                    <img src='https://picsum.photos/100'
                                    style ='
-                                   border-color:#c8f3f1;
+                                   border-color:#242424;
                                    border-style: solid;
                                    border-width: 5px;
                                    border-radius: 50%;'>
     
-
                                    email: ` + doc.data().email + `
-                                   username: ` + doc.data().username + `
+                                   restaurant name: ` + doc.data().username + `
                                    name: ` + doc.data().name + `
                                    LastLogin: ` + doc.data().lastLogin;
                     //console.log(doc.id, " => ", doc.data());

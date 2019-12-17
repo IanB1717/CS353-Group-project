@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Chefcity</title>
 		<link rel="stylesheet" href="styles/addRecipeStyle.css">
+		<link rel="stylesheet" href="styles/styles.css">
 		<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,24 +14,24 @@
         <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 		
 	</head>
-	<body>
-		<name>
-			<h1><a href="./index.html" class="menuBar">Chefcity</a></h1>
-			<h3><i class="glyphicon glyphicon-user"></i> Profile</h3>
+	<body onload="checkLoginForTitleBar();checkLogin()">
+		<name id="bar">
+			<h1><a href="index.html"> <img src="images/logo.png" alt="Chef City" width="150px"></a></h1>
+			<div id="profile-tab"></div>
+			<div id="login-tab"></div>
 		</name>
 		
 		<div class="content">
 			<!-- MENU BAR -->
 			<nav class="navbar navbar-light" id="menu">
-			  <div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-center">
-				  <li class="active"><a href="./index.html"><i class="glyphicon glyphicon-home"></i>  Home</a></li>
-				  <li><a href="./inventory.html"><i class="glyphicon glyphicon-cutlery"></i>  My Inventory</a></li>
-				  <li><a href="./recipes.html"><i class="glyphicon glyphicon-book"></i>  Recipes</a></li>
-				  <li><a href="./orders.html"><i class="glyphicon glyphicon-list"></i>  Orders</a></li>
-				  <li><a href="./suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i>  Suppliers</a></li>
-				</ul>
-			  </div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-center">
+						<li><a href="inventory.html"><i class="glyphicon glyphicon-cutlery"></i> Products</a></li>
+						<li><a href="recipes.html"><i class="glyphicon glyphicon-book"></i> Recipes</a></li>
+						<li><a href="orders.html"><i class="glyphicon glyphicon-list"></i> Orders</a></li>
+						<li><a href="suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i> Suppliers</a></li>
+					</ul>
+				</div>
 			</nav>
 			
 			
@@ -111,6 +112,14 @@
 			});
 		</script>
 		<script src="scripts/app.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="scripts/session.js"></script>
+		<script src="scripts/accounts.js"></script>
 	
 	</body>
+	<footer class="footer">
+		<p class="copyright-text">
+		  Copyright &copy; 2017 All Rights Reserved by Chef City
+		</p>
+	</footer>
 </html>

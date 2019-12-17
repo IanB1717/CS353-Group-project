@@ -1,3 +1,4 @@
+
 var signed_in="test";
 var arr=[];
 var num=0;
@@ -27,6 +28,8 @@ function validateForm(){
 		);
 		num++;
 	}
+	orderForm.ingredient.value = '';
+	orderForm.quantity.value = '';
 }
 
 function deleteRow(){
@@ -38,13 +41,10 @@ function deleteRow(){
 }
 
 function sendJSON(){
-	document.getElementById("confirm").innerHTML = "";
 	if(num>0) {
 		var myJSON = JSON.stringify(arr);
-		
 		formatOrder(arr);
 	}
-
 }
 
 function formatOrder(input){
@@ -119,10 +119,10 @@ function splitOrder(input){
 			var order = {
 				"reciever":supplierArray[i].Email,
 				//"from":,
-				"body":string
+				"body":string,
+				"supplier":supplierArray[i].Name
 			}
 			orderArray.push(order);
-			
 		}
 		//console.log(orderArray);
 		sendOrders(orderArray);
@@ -131,25 +131,25 @@ function splitOrder(input){
 
 function sendOrders(input){
 	//console.log(input);
-	
 	for(i = 0;i<input.length;i++){
 		data = input[i]
 		console.log(input[i]);
-		$.ajax({
-			url: 'scripts/mail.py',
-			contentType: 'application/json;charset=UTF-8',
-			//data: input[i],
-			data: data,
-			type: 'POST',
-			dataType: "json",
-			success: function(response) {
-				console.log("success");
-			},
-			error: function(error) {
-				console.log(error);
-				//console.log(data);
-			}
-		});
+		var userId = auth.currentUser.uid;
+		db.collection('Orders').add({
+			Order: input[i],
+			User: userId,
+			To: input[i].supplier,
+			Body: input[i].body,
+			Time: firebase.firestore.FieldValue.serverTimestamp() 
+    	});
 	}
+	while(num>0){
+		deleteRow();
+	}
+	alert("Your order has been sent. Thank you for using Chef City");
 }
 
+function myFunction() {
+	var x = document.getElementById("previousOrders");
+	x.style.display = "none";
+  }

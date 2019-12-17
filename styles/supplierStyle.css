@@ -37,18 +37,24 @@ a:active{text-decoration:none; color:black}
     transform: translatex(-50%);
 }
 .suppliers-content{
-	padding:1%;
+	max-width: 1000px;
+	margin:auto;
 }
 
-.addSup{
-	width:500px;
+#add-supplier{
+	width:800px;
 }
+
+.form-group{
+	display: flex;
+	justify-content: center;
+}
+
 .listOfSup{
-	text-align:center;
 	padding:2%;
 }
 
-.buttons{
+#submit{
 	text-align:center;
 	padding:1%;
 }

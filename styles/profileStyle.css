@@ -10,16 +10,6 @@
   src: url('poppins/Poppins-Regular.ttf'); 
 }
 
-name{
-	background-color:#c8f3f1;
-	padding:1%;
-	float:center;
-	display:flex;
-	position: -webkit-sticky;
-	position: sticky;
-	top:0;
-}
-
 h3 {
 	text-align: center;
 }
@@ -35,14 +25,9 @@ pre {
 	word-wrap: break-word;
 	font-weight: 3;
     background-color: #ffffff;
-    border: 0px solid #ccc;
+    border: 0px solid #242424;
 	border-radius: 4px;
 }
-
-a:link{text-decoration:none; color:black}
-a:hover{text-decoration:underline; color:black}
-a:visited{text-decoration:none; color:black}
-a:active{text-decoration:none; color:black}
 
 .content{
 	background-color:#f1f1f1;
@@ -55,20 +40,3 @@ a:active{text-decoration:none; color:black}
     left: 50%;
     transform: translatex(-50%);
 }
-.suppliers-content{
-	padding:1%;
-}
-
-.addSup{
-	width:500px;
-}
-.listOfSup{
-	text-align:center;
-	padding:2%;
-}
-
-.buttons{
-	text-align:center;
-	padding:1%;
-}
-

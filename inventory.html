@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Chefcity</title>
 		<link rel="stylesheet" href="styles/inventoryStyle.css">
+		<link rel="stylesheet" href="styles/styles.css">
 		<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -11,28 +12,30 @@
 		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+
 	</head>
-	<body>
-		<name>
-			<h1><a href="./index.html" class="menuBar">Chefcity</a></h1>
-			<h3><i class="glyphicon glyphicon-user"></i> Profile</h3>
+	<body onload="checkLoginForTitleBar();checkLogin()">
+		<name id="bar">
+			<h1><a href="index.html"> <img src="images/logo.png" alt="Chef City" width="150px"></a></h1>
+			<div id="profile-tab"></div>
+			<div id="login-tab"></div>
 		</name>
 		
 		<div class="content">
 			<!-- MENU BAR -->
 			<nav class="navbar navbar-light" id="menu">
-			  <div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-center">
-				  <li class="active"><a href="./index.html"><i class="glyphicon glyphicon-home"></i>  Home</a></li>
-				  <li><a href="./inventory.html"><i class="glyphicon glyphicon-cutlery"></i>  My Inventory</a></li>
-				  <li><a href="./recipes.html"><i class="glyphicon glyphicon-book"></i>  Recipes</a></li>
-				  <li><a href="./orders.html"><i class="glyphicon glyphicon-list"></i>  Orders</a></li>
-				  <li><a href="./suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i>  Suppliers</a></li>
-				</ul>
-			  </div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-center">
+						<li><a href="inventory.html"><i class="glyphicon glyphicon-cutlery"></i> Products</a></li>
+						<li><a href="recipes.html"><i class="glyphicon glyphicon-book"></i> Recipes</a></li>
+						<li><a href="orders.html"><i class="glyphicon glyphicon-list"></i> Orders</a></li>
+						<li><a href="suppliers.html"><i class="glyphicon glyphicon-shopping-cart"></i> Suppliers</a></li>
+					</ul>
+				</div>
 			</nav>
+			
 			<div class="inventory">
-				<div class="row">
+				<div class="row-">
 					<div class="col-sm-5">
 						<form class="form-horizontal" id="addFood" action="/action_page.php" name="my-form" method="post">
 							<div class="form-group">
@@ -59,44 +62,24 @@
 									<input type="text" class="form-control" id="addId" placeholder="Id" required>
 								</div>
 							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
+                            <div id="submit">
+							    <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
 						</form>
-						<!--<div class="buttons">
-							<button type="submit" class="btn btn-default" onclick="validateForm()">Add item</button>
-							<button type="cancel" class="btn btn-default" onclick="deleteRow()">Delete previous</button>
-						</div>
-						<div class="buttons">
-							<button type ="submit" class="btn btn-default" onclick="sendJSON()">Submit order</button>
-						</div>
-						<p id="confirm"></p>-->
 					</div>
 				</div>
 			</div>
-			<!--<div class="inventory">
-				<div class="col-sm-5">
-					<h4>Items to be added:</h4>
-					<table class="table" id="table">
-						<thead>
-						<tr>
-							<th>Ingredient</th>
-							<th>Quantity</th>
-						</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-				</div>
-			</div>-->
 			<div class="inventory">
 				<div class="listOfInv">
-					<h4>Current inventory on system:</h4>
-					<ul id ="inventory-list"></ul>
 
 					<table class="table" id="table">
 						<thead>
 						<tr>
 							<th>Item</th>
-							<th>Amount</th>
+                            <th>Supplier</th>
+							<th>Unit</th>
+							<th>Id</th>
+							<th>Delete</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -119,12 +102,20 @@
 				measurementId: "G-TTL2G91C3D"
 			};
 			firebase.initializeApp(firebaseConfig);
-			const auth = firebase.auth();
 			const db = firebase.firestore()
+			const auth = firebase.auth();
 			db.settings({
 				timestampsInSnapshots: true
 			});
 		</script>
 		<script src="scripts/inventory.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="scripts/session.js"></script>
+		<script src="scripts/accounts.js"></script>
 	</body>
+	<footer class="footer">
+		<p class="copyright-text">
+		  Copyright &copy; 2017 All Rights Reserved by Chef City
+		</p>
+	</footer>
 </html>
